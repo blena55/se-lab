@@ -14,7 +14,7 @@ public class TorpedoStore {
 
   private int torpedoCount = 0;
 
-  private Random random = new Random();
+  private Random random = new Random(); // osztályszinten példányosítottam a Random objektumot
 
   public TorpedoStore(int numberOfTorpedos){
     this.torpedoCount = numberOfTorpedos;
@@ -32,7 +32,7 @@ public class TorpedoStore {
 
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
-      throw new IllegalArgumentException("numberOfTorpedos");
+      throw new IllegalArgumentException("numberOfTorpedos"); // a kivételeket el kell dobni
     }
 
     boolean success = false;
@@ -43,7 +43,7 @@ public class TorpedoStore {
 
     if (r >= FAILURE_RATE) {
       // successful firing
-      this.torpedoCount -= numberOfTorpedos;
+      this.torpedoCount -= numberOfTorpedos; // helytelen szintaxis javítása
       success = true;
     } else {
       // simulated failure
